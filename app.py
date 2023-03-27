@@ -8,7 +8,7 @@ app = Flask(__name__, static_url_path='/', static_folder='web')
     
 @app.route("/")
 def indexPage():
-    return send_file("web/index.html")
+    return send_file("Web/index.html")
 
 @app.route('/upload', methods=['POST'])
 def upload_image():
