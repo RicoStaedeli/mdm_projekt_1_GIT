@@ -3,7 +3,7 @@ from flask.helpers import send_file
 #from PIL import Image
 #from transformers import AutoProcessor, AutoModelForCausalLM
 
-app = Flask(__name__, static_url_path='/', static_folder='web')
+app = Flask(__name__, static_url_path='/', static_folder='Web')
 
     
 @app.route("/")
