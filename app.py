@@ -12,7 +12,7 @@ def indexPage():
 
 @app.route('/upload', methods=['POST'])
 def upload_image():
-    
+    print("Start classify Image")
     # Get the uploaded image from the request
     image_file = request.files['image']
 
@@ -22,7 +22,7 @@ def upload_image():
     pixel_values = processor(images=image, return_tensors="pt").pixel_values
     generated_ids = model.generate(pixel_values=pixel_values, max_length=50)
     generated_caption = processor.batch_decode(generated_ids, skip_special_tokens=True)[0]
-    #generated_caption = "Nothing to see here"
+    #generated_caption = "Nothing to see here" please work now
 
     print(generated_caption)
        

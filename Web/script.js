@@ -1,6 +1,7 @@
 // Get the input element that has the image
 const inputElement = document.getElementById("image-input");
 const imageElement = document.getElementById("uploaded_image");
+const loaderElement = document.getElementById("loader");
 
 // Listen for the "change" event on the input element
 inputElement.addEventListener("change", handleFiles, false);
@@ -8,6 +9,9 @@ inputElement.addEventListener("change", handleFiles, false);
 // Define the handleFiles function
 function handleFiles() {
     console.log("Try to send the image")
+    //show loader
+    loaderElement.classList.remove("hidden");
+    loaderElement.classList.add("visible");
     const fileList = this.files;
     if (!fileList.length) {
         console.log("No file selected");
@@ -32,6 +36,9 @@ function handleFiles() {
         // Display the text on the HTML page
         const textDiv = document.getElementById("answer");
         console.log(data)
-        textDiv.innerHTML = data.generated_caption;})   
+        textDiv.innerHTML = data.generated_caption;
+        //disable loader
+        loaderElement.classList.remove("visible");
+        loaderElement.classList.add("hidden");})   
 }
 
